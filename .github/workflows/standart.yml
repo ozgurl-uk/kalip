@@ -8,6 +8,6 @@ on:
 
 jobs:
   standart:
-    uses: ozgurl-uk/kalip/.github/workflows/_standart.yml@v1
+    uses: ozgurl-uk/kalip/.github/workflows/_standart.yml@main
     permissions:
       contents: read

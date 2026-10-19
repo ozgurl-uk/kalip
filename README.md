@@ -10,4 +10,4 @@ bun run check   # tsc + build + guard
 
 Yeni app lisansı: AGPL-3.0 (kod) + CC BY-SA 4.0 (içerik), bkz. `.ozgurluk/licenses/`.
 
-Merkezi CI bu repodaki `.github/workflows/_*.yml` dosyalarıdır, app'ler `@v1` ile çağırır. Güncelleme sonrası `v1` etiketini taşı: `git tag -f v1 <commit> && git push -f origin v1`.
+Merkezi CI bu repodaki `.github/workflows/_*.yml` dosyalarıdır, app'ler `@main` ile çağırır: `main`'e giren her sürüm app'lere hemen yansır.

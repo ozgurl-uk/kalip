@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   development:
-    uses: ozgurl-uk/kalip/.github/workflows/_development.yml@v1
+    uses: ozgurl-uk/kalip/.github/workflows/_development.yml@main
     secrets: inherit
     permissions:
       contents: read
