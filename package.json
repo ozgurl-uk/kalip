@@ -1,6 +1,6 @@
 {
   "name": "kalip",
-  "description": "özgürl.uk app kalıbı: çok sayfalı statik site (SEO öncelikli), otomatik dev/preview/sürüm yayını",
+  "description": "ozgurl.uk app kalıbı: çok sayfalı statik site (SEO öncelikli), otomatik dev/preview/sürüm yayını",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ozgurl-uk/kalip.git"
@@ -8,7 +8,7 @@
   "bugs": {
     "url": "https://github.com/ozgurl-uk/kalip/issues"
   },
-  "author": "özgürl.uk katkıcıları",
+  "author": "ozgurl.uk katkıcıları",
   "license": "MIT",
   "private": true,
   "type": "module",

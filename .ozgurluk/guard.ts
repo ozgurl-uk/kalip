@@ -1,4 +1,4 @@
-// Build çıktısını özgürl.uk standardına göre denetler. `vite build` sonrası `bun .ozgurluk/guard.ts`.
+// Build çıktısını ozgurl.uk standardına göre denetler. `vite build` sonrası `bun .ozgurluk/guard.ts`.
 // Amaç: her şey ozgurl.uk'e bağlı kalsın, saldırıda faturaya dönüşecek hiçbir şey yayınlanmasın.
 // Yayınlanan tek şey dist/client (void deploy --dir dist/client); dist/ssr asla yüklenmez.
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
@@ -73,7 +73,7 @@ for (const file of walk(ASSETS).filter((f) => f.endsWith(".html"))) {
 }
 
 if (errors.length) {
-  console.error("özgürl.uk standardı ihlal edildi:\n- " + errors.join("\n- "));
+  console.error("ozgurl.uk standardı ihlal edildi:\n- " + errors.join("\n- "));
   process.exit(1);
 }
 console.log(`ok: ${cfg.name} → ${cfg.routes.map((r: any) => r.pattern).join(", ")}`);
