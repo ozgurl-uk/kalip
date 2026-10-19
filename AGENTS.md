@@ -57,7 +57,7 @@ AGENTS.md, CLAUDE.md, CONTRIBUTING.md, .nvmrc, .gitignore, .github/pull_request_
 .github/workflows/{preview,development,deploy,standart}.yml   kalıptaki merkezi iş akışlarını (_*.yml) çağıran ince dosyalar (miras)
 ```
 - Değiştirdiğin yerler: `package.json` `name`, `description`, `homepage` (app'lerde zorunlu; kalıpta yok), `repository`, `bugs` (hepsi `name` ile tutarlı olmalı, guard denetler), `version.txt`, `CHANGELOG.md`, `APP.md`, `index.html`, `src/`, `public/` (`_headers` hariç).
-- CI mantığı (build, guard, deploy) app'te değil **kalıpta, merkezi**dir (`ozgurl-uk/kalip/.github/workflows/_*.yml@v1`); app'teki workflow dosyaları sadece onları çağırır. App'e `_*.yml` ve `.github/actions` kopyalanmaz.
+- CI mantığı (build, guard, deploy) app'te değil **kalıpta, merkezi**dir (`ozgurl-uk/kalip/.github/workflows/_*.yml@main`); app'teki workflow dosyaları sadece onları çağırır. App'e `_*.yml` ve `.github/actions` kopyalanmaz.
 - `standart` CI job'ı miras dosyaları kalıpla karşılaştırır; farklıysa PR kırmızı olur. Kural değişikliği kalıba PR ile gelir.
 
 ## 5. İş akışı

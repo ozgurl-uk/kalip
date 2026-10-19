@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   deploy:
-    uses: ozgurl-uk/kalip/.github/workflows/_deploy.yml@v1
+    uses: ozgurl-uk/kalip/.github/workflows/_deploy.yml@main
     secrets: inherit
     permissions:
       contents: write

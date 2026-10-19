@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   preview:
-    uses: ozgurl-uk/kalip/.github/workflows/_preview.yml@v1
+    uses: ozgurl-uk/kalip/.github/workflows/_preview.yml@main
     secrets: inherit
     permissions:
       contents: read
