@@ -66,10 +66,10 @@ Ayrıntı `CONTRIBUTING.md`. Özet:
 2. `bun run dev` ile lokalde çalış (`https://<APP>-local.ozgurl.uk` otomatik açılır); PR'dan önce `bun run check`.
    Sadece lokal istersen `OZGURLUK_LOCAL=1 bun run dev`. Dev adresi herkese açıktır; gizli bir şey koyma.
 3. İşi `development`'a PR ile getir → `<APP>-pr-<no>.ozgurl.uk` preview'ı; mobil + masaüstü kontrol et. PR kapanınca preview silinir.
-4. Onay (owner/admin onay şartını atlayabilir, CI'ı atlayamaz) + squash merge → `<APP>-dev.ozgurl.uk` güncellenir.
+4. Onay (owner/admin onay şartını atlayabilir, CI'ı atlayamaz) + squash merge (özellik PR'ları) → `<APP>-dev.ozgurl.uk` güncellenir.
 5. **Sürüm:** `development` → `main` PR'ında `version.txt` artırılır (aynı sürüm iki kez yayınlanamaz) ve `CHANGELOG.md`'ye bölüm eklenir.
    Yeni app'in ilk sürümü `0.1.0` olur (prod'a çıkar); önce denemek için `0.1.0-rc.1` yazılır.
-6. `main`'e merge → CI sürümü yayınlar, `vX.Y.Z` tag'i ve Release'i açar. Elle tag/deploy yok.
+6. Sürüm PR'ı **merge commit** ile birleştirilir (squash değil). `main`'e merge → CI sürümü yayınlar, `vX.Y.Z` tag'i ve Release'i açar. Elle tag/deploy yok.
 7. Lokalden deploy yok (`bun run deploy` sadece CI'da çalışır). Agent'lar PR'ı insan "merge" demeden birleştirmez.
 
 ## 6. Lisans
