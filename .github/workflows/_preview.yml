@@ -18,7 +18,7 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-      - uses: ozgurl-uk/kalip/.github/actions/setup@v1
+      - uses: ozgurl-uk/kalip/.github/actions/setup@main
       - name: version.txt artırıldı mı? (sadece main'e PR)
         if: github.base_ref == 'main'
         run: |
@@ -36,7 +36,7 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-      - uses: ozgurl-uk/kalip/.github/actions/setup@v1
+      - uses: ozgurl-uk/kalip/.github/actions/setup@main
       - run: |
           name="$(bun -e 'import { WORKER } from "./.ozgurluk/config.ts"; console.log(WORKER)')"
           # PR'ın deploy'u hiç olmadıysa Worker yoktur; cleanup yine yeşil bitsin.

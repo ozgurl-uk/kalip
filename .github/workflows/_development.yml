@@ -16,5 +16,5 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-      - uses: ozgurl-uk/kalip/.github/actions/setup@v1
+      - uses: ozgurl-uk/kalip/.github/actions/setup@main
       - run: bun run deploy
