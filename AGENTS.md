@@ -1,4 +1,4 @@
-# özgürl.uk standardı
+# ozgurl.uk standardı
 
 > Bu dosya `ozgurl-uk/kalip` reposundan miras alınır. **App reposunda düzenleme.**
 > Değişiklik kalıba PR ile gelir; CI (`standart` job) farklılığı yakalar.
