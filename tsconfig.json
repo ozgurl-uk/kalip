@@ -1,0 +1,4 @@
+{
+  "extends": "./.ozgurluk/tsconfig.json",
+  "include": ["src", ".ozgurluk", "*.ts"]
+}

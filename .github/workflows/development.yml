@@ -1,0 +1,17 @@
+name: development
+
+# development'a merge → <APP>-dev.ozgurl.uk ; mantık kalıpta (_development.yml). Bu dosya miras, düzenleme.
+on:
+  push:
+    branches: [development]
+
+concurrency:
+  group: development
+  cancel-in-progress: true
+
+jobs:
+  development:
+    uses: ozgurl-uk/kalip/.github/workflows/_development.yml@v1
+    secrets: inherit
+    permissions:
+      contents: read

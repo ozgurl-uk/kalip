@@ -1,0 +1,29 @@
+name: _standart
+
+# Merkezi iş akışı (workflow_call). Miras dosyalar kalıp ile birebir aynı olmalı; kalıbın kendisinde atlanır.
+on:
+  workflow_call:
+
+jobs:
+  standart:
+    if: github.repository != format('{0}/kalip', github.repository_owner)
+    runs-on: ${{ vars.RUNNER || 'ubuntu-24.04' }}
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository_owner }}/kalip
+          ref: v1
+          path: .kalip
+      - name: miras dosyalar
+        run: |
+          fail=0
+          for f in AGENTS.md CLAUDE.md CONTRIBUTING.md .nvmrc .gitignore vite.config.ts void.config.ts tsconfig.json public/_headers \
+                   .github/pull_request_template.md .github/workflows/preview.yml .github/workflows/development.yml \
+                   .github/workflows/deploy.yml .github/workflows/standart.yml; do
+            diff -q "$f" ".kalip/$f" >/dev/null || { echo "::error file=$f::kalıptan farklı"; fail=1; }
+          done
+          diff -rq .ozgurluk .kalip/.ozgurluk >/dev/null || { echo "::error::.ozgurluk kalıptan farklı"; diff -rq .ozgurluk .kalip/.ozgurluk; fail=1; }
+          exit $fail

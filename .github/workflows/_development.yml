@@ -1,0 +1,20 @@
+name: _development
+
+# Merkezi iş akışı (workflow_call). development'a merge → <APP>-dev.ozgurl.uk (sürümden bağımsız; tag/Release yok).
+on:
+  workflow_call:
+
+env:
+  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+  CHANNEL: dev
+
+jobs:
+  development:
+    runs-on: ${{ vars.RUNNER || 'ubuntu-24.04' }}
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ozgurl-uk/kalip/.github/actions/setup@v1
+      - run: bun run deploy

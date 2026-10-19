@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.void/
+.void-wrangler.jsonc
+.cloudflare/
+.wrangler/
+.env
+.DS_Store
+void.lock.json

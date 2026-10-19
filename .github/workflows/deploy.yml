@@ -1,0 +1,17 @@
+name: deploy
+
+# main'e merge → version.txt'deki sürüm yayınlanır ; mantık kalıpta (_deploy.yml). Bu dosya miras, düzenleme.
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    uses: ozgurl-uk/kalip/.github/workflows/_deploy.yml@v1
+    secrets: inherit
+    permissions:
+      contents: write

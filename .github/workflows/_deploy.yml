@@ -1,0 +1,30 @@
+name: _deploy
+
+# Merkezi iş akışı (workflow_call). main'e merge → version.txt'deki sürüm yayınlanır; tag ve Release otomatik açılır.
+on:
+  workflow_call:
+
+env:
+  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+jobs:
+  deploy:
+    runs-on: ${{ vars.RUNNER || 'ubuntu-24.04' }}
+    environment: production
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ozgurl-uk/kalip/.github/actions/setup@v1
+      - name: sürüm
+        id: v
+        run: |
+          v="v$(cat version.txt)"
+          git ls-remote --exit-code --tags origin "refs/tags/$v" >/dev/null 2>&1 && { echo "::error file=version.txt::$v zaten yayınlanmış; yeni sürüm çıkmadı"; exit 1; } || true
+          echo "tag=$v" >> "$GITHUB_OUTPUT"
+          case "$v" in *-*) echo "pre=--prerelease" >> "$GITHUB_OUTPUT" ;; *) echo "pre=" >> "$GITHUB_OUTPUT" ;; esac
+      - run: bun run deploy
+      - run: gh release create "${{ steps.v.outputs.tag }}" --target "${{ github.sha }}" --generate-notes ${{ steps.v.outputs.pre }}
+        env:
+          GH_TOKEN: ${{ github.token }}

@@ -1,0 +1,33 @@
+{
+  "name": "kalip",
+  "description": "özgürl.uk app kalıbı: çok sayfalı statik site (SEO öncelikli), otomatik dev/preview/sürüm yayını",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozgurl-uk/kalip.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ozgurl-uk/kalip/issues"
+  },
+  "author": "özgürl.uk katkıcıları",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.4.3",
+  "engines": {
+    "node": ">=24.21.0",
+    "bun": ">=1.4.3"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "check": "tsc && vite build && bun .ozgurluk/guard.ts",
+    "deploy": "bun .ozgurluk/deploy.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.3",
+    "cf": "1.0.0-beta.18",
+    "typescript": "7.0.2",
+    "vite": "8.3.4",
+    "void": "1.1.11"
+  }
+}

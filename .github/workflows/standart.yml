@@ -1,0 +1,13 @@
+name: standart
+
+# Miras dosyaların kalıpla aynı kalmasını denetler ; mantık kalıpta (_standart.yml). Bu dosya miras, düzenleme.
+on:
+  pull_request:
+  push:
+    branches: [development, main]
+
+jobs:
+  standart:
+    uses: ozgurl-uk/kalip/.github/workflows/_standart.yml@v1
+    permissions:
+      contents: read
