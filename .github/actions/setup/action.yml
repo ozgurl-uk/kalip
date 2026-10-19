@@ -3,14 +3,14 @@ description: Node (.nvmrc) + Bun + bağımlılıklar (önbellekli)
 runs:
   using: composite
   steps:
-    - uses: actions/setup-node@v4
+    - uses: actions/setup-node@v5
       with:
         node-version-file: .nvmrc
         check-latest: false
     - uses: oven-sh/setup-bun@v2
       with:
         bun-version-file: package.json
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       with:
         path: ~/.bun/install/cache
         key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
