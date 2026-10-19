@@ -6,10 +6,11 @@ Branch'ler: **`development`** (varsayılan, entegrasyon) ve **`main`** (sürüm)
 1. `development`'tan branch aç: `feat/kisa-ad`, `fix/kisa-ad`, `docs/kisa-ad`.
 2. Commit mesajları [Conventional Commits](https://www.conventionalcommits.org/tr/): `feat: ...`, `fix: ...`, `docs: ...`, `chore: ...`.
 3. `development`'a PR aç. CI `bun run check` çalıştırır ve `<APP>-pr-<no>.ozgurl.uk` preview'ını yayınlar.
-4. En az 1 onay + yeşil CI → **squash merge**. Merge olunca `<APP>-dev.ozgurl.uk` güncellenir (sürümden bağımsız, tag yok).
+4. En az 1 onay + yeşil CI → **squash merge** (özellik PR'ları). Merge olunca `<APP>-dev.ozgurl.uk` güncellenir (sürümden bağımsız, tag yok).
    Repo owner'ı ve admin'ler onay şartını atlayıp kendi PR'ını merge edebilir; **CI yeşil olmak zorundadır**, kimse atlayamaz.
 5. **Sürüm çıkarmak için** `development` → `main` PR'ı aç. Bu PR'da **`version.txt`'i artır** ([SemVer](https://semver.org/lang/tr/)) ve `CHANGELOG.md`'ye bir bölüm ekle (aynı sürüm iki kez yayınlanamaz; tag varsa PR kırmızı olur).
-6. `main`'e merge olunca CI otomatik yayınlar: `version.txt`'deki sürüm deploy edilir, `vX.Y.Z` tag'i ve GitHub Release açılır.
+6. Sürüm PR'ını (`development` → `main`) **merge commit** ile birleştir, squash yapma: squash `development`'ı `main`'den ayrıştırır, sonraki sürüm PR'ında çakışma çıkar.
+   `main`'e merge olunca CI otomatik yayınlar: `version.txt`'deki sürüm deploy edilir, `vX.Y.Z` tag'i ve GitHub Release açılır.
 
 ## Sürüm → adres
 | `version.txt` | Adres | Release |
